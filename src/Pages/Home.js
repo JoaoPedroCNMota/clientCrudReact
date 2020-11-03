@@ -12,7 +12,9 @@ const Home = () => {
   const onSubmit = (data) => {
     const token = loginForm(data)
       .then((response) => {
-        return response.data.token;
+        // console.log(response.headers.authorization);
+        window.location.href = '/client';
+        return response.headers.authorization;
       })
       .catch((error) => {
         alert(error);
