@@ -21,7 +21,7 @@ const Client = (props) => {
 
   return (
     <Container style={{ backgroundColor: "lightgray" }}>
-      <h3 style={{ color: "blue" }}>{props.name}</h3>
+      <h3 style={{ color: "blue", marginTop: "3%" }}>{props.name}</h3>
 
       <div>
         <Row>
@@ -36,7 +36,7 @@ const Client = (props) => {
             <h5>Telefones: </h5>
 
             {props.phone.map((p) => (
-              <Row>
+              <Row key={p.number}>
                 <p>
                   {/* {p.number} / Tipo: {p.typeNumber} */}
                   {checkPhoneType(p.number, p.typeNumber)}
@@ -48,7 +48,7 @@ const Client = (props) => {
           <Col>
             <h5>Emails: </h5>
             {props.email.map((e) => (
-              <p>{e}</p>
+              <p key={e}>{e}</p>
             ))}
           </Col>
         </Row>
@@ -57,7 +57,7 @@ const Client = (props) => {
           <Col>
             <h5 style={{ textAlign: "center", marginTop: "3%" }}>Endereço</h5>
             {props.address.map((a) => (
-              <Row style={{ margin: "1%", backgroundColor: "lightskyblue" }}>
+              <Row key={a.cep} style={{ margin: "1%", backgroundColor: "lightskyblue" }}>
                 <Col>
                   <Row>
                     <h6>Bairro:</h6>

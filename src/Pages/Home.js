@@ -9,8 +9,8 @@ const Home = () => {
 
   const { register, handleSubmit, errors } = useForm()
 
-  const onSubmit = (data) => {
-    const token = loginForm(data)
+  const onSubmit = async (data) => {
+    const token = await loginForm(data)
       .then((response) => {
         // console.log(response.headers.authorization);
         window.location.href = '/client';
