@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import { postClient, searchCep } from "../Services/client";
 import {
   CpfMask,
@@ -43,7 +43,9 @@ const NewClient = () => {
         return response.status;
       })
       .catch((error) => {
-        alert(error + "\n\nSua seção expirou, ou seu usuário não tem permissão");
+        alert(
+          error + "\n\nSua seção expirou, ou seu usuário não tem permissão"
+        );
       });
   };
 
@@ -95,7 +97,7 @@ const NewClient = () => {
           <Col>
             <Form.Group>
               <Form.Label>Nome:</Form.Label>
-              <Form.Control name="name" type="text" />
+              <Form.Control required name="name" type="text" />
             </Form.Group>
           </Col>
 
@@ -103,6 +105,7 @@ const NewClient = () => {
             <Form.Group>
               <Form.Label>CPF:</Form.Label>
               <Form.Control
+                required
                 name="cpf"
                 type="text"
                 value={cpf}
@@ -114,7 +117,7 @@ const NewClient = () => {
 
         <Form.Group>
           <Form.Label>Email:</Form.Label>
-          <Form.Control name="email1" type="email" />
+          <Form.Control required name="email1" type="email" />
         </Form.Group>
 
         <Form.Group>
@@ -136,6 +139,7 @@ const NewClient = () => {
             <Col>
               <Form.Label>Telefone:</Form.Label>
               <Form.Control
+                required
                 name="number"
                 type="text"
                 value={number}
@@ -151,6 +155,7 @@ const NewClient = () => {
             <Col>
               <Form.Label>CEP:</Form.Label>
               <Form.Control
+                required
                 name="cep"
                 type="text"
                 id="cep"
@@ -168,18 +173,18 @@ const NewClient = () => {
           <Row>
             <Col>
               <Form.Label>Bairro:</Form.Label>
-              <Form.Control name="bairro" type="text" id="bairro" />
+              <Form.Control required name="bairro" type="text" id="bairro" />
             </Col>
             <Col>
               <Form.Label>Logradouro:</Form.Label>
-              <Form.Control name="logradouro" type="text" id="logradouro" />
+              <Form.Control required name="logradouro" type="text" id="logradouro" />
             </Col>
           </Row>
 
           <Row>
             <Col>
               <Form.Label>UF:</Form.Label>
-              <Form.Control name="uf" type="text" id="uf" />
+              <Form.Control required name="uf" type="text" id="uf" />
             </Col>
             <Col>
               <Form.Label>Complemento:</Form.Label>
@@ -193,9 +198,10 @@ const NewClient = () => {
       </Form>
 
       <Link to="/client">
-        <Button style={{ marginTop: "2%"}} variant="warning">Voltar</Button>
+        <Button style={{ marginTop: "2%" }} variant="warning">
+          Voltar
+        </Button>
       </Link>
-
     </Container>
   );
 };
