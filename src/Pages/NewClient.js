@@ -13,7 +13,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 const NewClient = () => {
   const [cpf, setCpf] = React.useState("");
-  const [typeP, setTypeP] = React.useState(1);
+  const [typeP, setTypeP] = React.useState(0);
   const [number, setNumber] = React.useState("");
   const [cep, setCep] = React.useState("");
 
@@ -51,12 +51,13 @@ const NewClient = () => {
 
   const checkPhone = (e) => {
     console.log(e.target.value);
+    setNumber("");
     setTypeP(e.target.value);
   };
 
   const maskNumbers = (e) => {
-    if (typeP === 1) {
-      console.log("tipo tel res" + typeP);
+    if (typeP == 0) {
+      console.log("tipo tel res " + typeP);
       setNumber(ResidencialPhoneMask(e.target.value));
     } else {
       console.log("tipo tel cel" + typeP);
